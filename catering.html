@@ -1291,6 +1291,7 @@ function loop(now){
 }
 requestAnimationFrame(loop);
 </script>
+<style>/* 발표용: 왼쪽 위 제목·설명 글 숨김 */#top{display:none}</style>
 <script>/* 발표 슬라이드 안에서: 넘기기 키는 발표 화면으로 전달 */if(parent!==window)addEventListener("keydown",e=>{const k=e.key;if(["ArrowRight","PageDown"," ","Enter","ArrowDown"].includes(k)){e.preventDefault();parent.postMessage({deck:"next"},"*");}else if(["ArrowLeft","PageUp","ArrowUp","Backspace"].includes(k)){e.preventDefault();parent.postMessage({deck:"prev"},"*");}else if(k==="f"||k==="F")parent.postMessage({deck:"fullscreen"},"*");});</script>
 </body>
 </html>
