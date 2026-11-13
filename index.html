@@ -55,7 +55,7 @@ const SLIDES = [
   {video:'video.mp4'},
   {img:'03'},                 // 타임테이블(개막식)은 영상 다음에
   {img:'06'},{img:'07'},{img:'08'},{img:'09'},{img:'10'},
-  {img:'11', qr:'qr.png'},
+  {qrOnly:'qr.png'},          // 카훗: 글씨 없이 어두운 배경에 QR만
   {web:'https://eunzisi.github.io/hp-quiz/'},
   {img:'12'},{img:'13'},{img:'14'},{img:'15'},{img:'16'},{img:'17'},
   {web:INVITE+'letters.html'},   // 원본 18·19p(부엉이 편지 화면 캡처) 대신 실제 롤링페이퍼 페이지
@@ -79,6 +79,9 @@ const els=SLIDES.map(s=>{
       st.appendChild(f);
     });
     d.appendChild(st);
+  }else if(s.qrOnly){
+    d.style.background='#0a0f1a';
+    d.innerHTML=`<div class="stage"><div class="qr" style="top:50%;height:72%;transform:translate(-50%,-50%)"><img src="${s.qrOnly}" alt="카훗 QR 코드"></div></div>`;
   }else if(s.web||s.motion){
     const f=document.createElement('iframe');
     f.dataset.src=s.web||s.motion;
